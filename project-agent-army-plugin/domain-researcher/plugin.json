@@ -1,0 +1,17 @@
+{
+  "name": "domain-researcher",
+  "version": "1.0.0",
+  "description": "Domain analysis and requirements research specialist agent",
+  "author": "HumboldtJoker",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "domain-researcher",
+      "source": "./skill.md"
+    }
+  ],
+  "agents": [],
+  "commands": [],
+  "mcpServers": [],
+  "hooks": {}
+}

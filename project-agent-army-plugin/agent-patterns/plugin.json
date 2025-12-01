@@ -1,0 +1,17 @@
+{
+  "name": "agent-patterns",
+  "version": "1.0.0",
+  "description": "Agent design patterns and collaboration frameworks",
+  "author": "HumboldtJoker",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "agent-patterns",
+      "source": "./skill.md"
+    }
+  ],
+  "agents": [],
+  "commands": [],
+  "mcpServers": [],
+  "hooks": {}
+}

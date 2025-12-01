@@ -1,0 +1,17 @@
+{
+  "name": "frontend-developer",
+  "version": "1.0.0",
+  "description": "Frontend development and UI/UX specialist agent",
+  "author": "HumboldtJoker",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "frontend-developer",
+      "source": "./skill.md"
+    }
+  ],
+  "agents": [],
+  "commands": [],
+  "mcpServers": [],
+  "hooks": {}
+}

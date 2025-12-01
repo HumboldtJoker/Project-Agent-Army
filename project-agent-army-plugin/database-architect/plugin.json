@@ -1,0 +1,17 @@
+{
+  "name": "database-architect",
+  "version": "1.0.0",
+  "description": "Database design and optimization specialist agent",
+  "author": "HumboldtJoker",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "database-architect",
+      "source": "./skill.md"
+    }
+  ],
+  "agents": [],
+  "commands": [],
+  "mcpServers": [],
+  "hooks": {}
+}

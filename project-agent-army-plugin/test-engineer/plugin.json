@@ -1,0 +1,17 @@
+{
+  "name": "test-engineer",
+  "version": "1.0.0",
+  "description": "Testing strategy and quality assurance specialist agent",
+  "author": "HumboldtJoker",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "test-engineer",
+      "source": "./skill.md"
+    }
+  ],
+  "agents": [],
+  "commands": [],
+  "mcpServers": [],
+  "hooks": {}
+}

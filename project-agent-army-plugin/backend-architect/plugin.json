@@ -1,0 +1,17 @@
+{
+  "name": "backend-architect",
+  "version": "1.0.0",
+  "description": "Backend architecture and system design specialist agent",
+  "author": "HumboldtJoker",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "backend-architect",
+      "source": "./skill.md"
+    }
+  ],
+  "agents": [],
+  "commands": [],
+  "mcpServers": [],
+  "hooks": {}
+}

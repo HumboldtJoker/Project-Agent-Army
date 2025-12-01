@@ -1,0 +1,17 @@
+{
+  "name": "constitutional-ai",
+  "version": "1.0.0",
+  "description": "Ethical AI governance and constitutional constraint specialist agent",
+  "author": "HumboldtJoker",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "constitutional-ai",
+      "source": "./skill.md"
+    }
+  ],
+  "agents": [],
+  "commands": [],
+  "mcpServers": [],
+  "hooks": {}
+}

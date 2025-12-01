@@ -1,0 +1,17 @@
+{
+  "name": "security-auditor",
+  "version": "1.0.0",
+  "description": "Security analysis and vulnerability assessment specialist agent",
+  "author": "HumboldtJoker",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "security-auditor",
+      "source": "./skill.md"
+    }
+  ],
+  "agents": [],
+  "commands": [],
+  "mcpServers": [],
+  "hooks": {}
+}
