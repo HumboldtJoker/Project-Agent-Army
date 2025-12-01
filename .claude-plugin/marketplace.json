@@ -1,65 +1,89 @@
-{
-  "name": "project-agent-army",
-  "owner": {
-    "name": "HumboldtJoker",
-    "email": "contact@humboldtjoker.dev"
-  },
-  "plugins": [
-    {
-      "name": "backend-architect",
-      "source": "./backend-architect",
-      "description": "Backend architecture and system design specialist agent",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
+ {
+    "name": "project-agent-army",
+    "owner": {
+      "name": "HumboldtJoker",
+      "email": "contact@humboldtjoker.dev"
     },
-    {
-      "name": "frontend-developer",
-      "source": "./frontend-developer",
-      "description": "Frontend development and UI/UX specialist agent",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
-    },
-    {
-      "name": "database-architect",
-      "source": "./database-architect",
-      "description": "Database design and optimization specialist agent",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
-    },
-    {
-      "name": "security-auditor",
-      "source": "./security-auditor",
-      "description": "Security analysis and vulnerability assessment specialist agent",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
-    },
-    {
-      "name": "test-engineer",
-      "source": "./test-engineer",
-      "description": "Testing strategy and quality assurance specialist agent",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
-    },
-    {
-      "name": "domain-researcher",
-      "source": "./domain-researcher",
-      "description": "Domain analysis and requirements research specialist agent",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
-    },
-    {
-      "name": "constitutional-ai",
-      "source": "./constitutional-ai",
-      "description": "Ethical AI governance and constitutional constraint specialist agent",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
-    },
-    {
-      "name": "agent-patterns",
-      "source": "./agent-patterns",
-      "description": "Agent design patterns and collaboration frameworks",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
-    }
-  ]
-}
+    "plugins": [
+      {
+        "name": "backend-architect",
+        "source": "./backend-architect",
+        "description": "Backend architecture and system design specialist agent",
+        "version": "1.0.0",
+        "author": {
+          "name": "HumboldtJoker",
+          "email": "contact@humboldtjoker.dev"
+        }
+      },
+      {
+        "name": "frontend-developer",
+        "source": "./frontend-developer",
+        "description": "Frontend development and UI/UX specialist agent",
+        "version": "1.0.0",
+        "author": {
+          "name": "HumboldtJoker",
+          "email": "contact@humboldtjoker.dev"
+        }
+      },
+      {
+        "name": "database-architect",
+        "source": "./database-architect",
+        "description": "Database design and optimization specialist agent",
+        "version": "1.0.0",
+        "author": {
+          "name": "HumboldtJoker",
+          "email": "contact@humboldtjoker.dev"
+        }
+      },
+      {
+        "name": "security-auditor",
+        "source": "./security-auditor",
+        "description": "Security analysis and vulnerability assessment specialist agent",
+        "version": "1.0.0",
+        "author": {
+          "name": "HumboldtJoker",
+          "email": "contact@humboldtjoker.dev"
+        }
+      },
+      {
+        "name": "test-engineer",
+        "source": "./test-engineer",
+        "description": "Testing strategy and quality assurance specialist agent",
+        "version": "1.0.0",
+        "author": {
+          "name": "HumboldtJoker",
+          "email": "contact@humboldtjoker.dev"
+        }
+      },
+      {
+        "name": "domain-researcher",
+        "source": "./domain-researcher",
+        "description": "Domain analysis and requirements research specialist agent",
+        "version": "1.0.0",
+        "author": {
+          "name": "HumboldtJoker",
+          "email": "contact@humboldtjoker.dev"
+        }
+      },
+      {
+        "name": "constitutional-ai",
+        "source": "./constitutional-ai",
+        "description": "Ethical AI governance and constitutional constraint specialist agent",
+        "version": "1.0.0",
+        "author": {
+          "name": "HumboldtJoker",
+          "email": "contact@humboldtjoker.dev"
+        }
+      },
+      {
+        "name": "agent-patterns",
+        "source": "./agent-patterns",
+        "description": "Agent design patterns and collaboration frameworks",
+        "version": "1.0.0",
+        "author": {
+          "name": "HumboldtJoker",
+          "email": "contact@humboldtjoker.dev"
+        }
+      }
+    ]
+  }
