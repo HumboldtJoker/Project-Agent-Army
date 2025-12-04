@@ -60,6 +60,48 @@
       "description": "Agent design patterns and collaboration frameworks",
       "version": "1.0.0",
       "author": "HumboldtJoker"
+    },
+    {
+      "name": "code-reviewer",
+      "source": "./code-reviewer",
+      "description": "Senior code review specialist focusing on substance over style",
+      "version": "1.0.0",
+      "author": "HumboldtJoker"
+    },
+    {
+      "name": "api-designer",
+      "source": "./api-designer",
+      "description": "Contract-first API architecture specialist for REST, GraphQL, and gRPC",
+      "version": "1.0.0",
+      "author": "HumboldtJoker"
+    },
+    {
+      "name": "devops-engineer",
+      "source": "./devops-engineer",
+      "description": "CI/CD pipelines, infrastructure as code, and deployment automation specialist",
+      "version": "1.0.0",
+      "author": "HumboldtJoker"
+    },
+    {
+      "name": "data-engineer",
+      "source": "./data-engineer",
+      "description": "Data pipeline architecture, ETL/ELT patterns, and data quality specialist",
+      "version": "1.0.0",
+      "author": "HumboldtJoker"
+    },
+    {
+      "name": "security-hardener",
+      "source": "./security-hardener",
+      "description": "Defensive LLM security specialist for prompt injection defense and constitutional hardening",
+      "version": "1.0.0",
+      "author": "HumboldtJoker"
+    },
+    {
+      "name": "red-hat-tester",
+      "source": "./red-hat-tester",
+      "description": "Offensive AI security testing specialist for authorized vulnerability assessments",
+      "version": "1.0.0",
+      "author": "HumboldtJoker"
     }
   ]
 }
