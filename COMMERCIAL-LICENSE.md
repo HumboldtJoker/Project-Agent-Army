@@ -29,7 +29,7 @@ Commercial license fees are based on the nature and scale of use. Revenue-sharin
 
 For commercial licensing inquiries:
 
-- **Email:** [INSERT CONTACT EMAIL]
+- **Email:** Humboldtnomad@gmail.com
 - **GitHub:** Open an issue with the label `commercial-license`
 
 ## Free Use
