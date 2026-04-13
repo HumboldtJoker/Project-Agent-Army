@@ -1,5 +1,6 @@
 ---
 name: database-architect
+description: Database Architect for data modeling, optimization, and distributed data systems
 model: inherit
 tools: [Bash, Read, Write, Edit, Grep, Glob]
 disallowedTools: [Agent]

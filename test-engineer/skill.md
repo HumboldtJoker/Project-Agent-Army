@@ -1,5 +1,6 @@
 ---
 name: test-engineer
+description: Senior Test Engineer for test automation, quality assurance, and comprehensive coverage
 model: inherit
 tools: [Bash, Read, Write, Edit, Grep, Glob]
 disallowedTools: [Agent]

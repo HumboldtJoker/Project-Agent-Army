@@ -1,5 +1,6 @@
 ---
 name: code-reviewer
+description: Senior Code Reviewer for security, correctness, performance, and maintainability
 model: inherit
 tools: [Read, Grep, Glob]
 disallowedTools: [Write, Edit, Agent]

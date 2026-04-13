@@ -6,6 +6,8 @@
 
 Designed to be deployed as Claude Code subagents via the Agent tool, coordinated by CC or any harness that implements the coordinator pattern.
 
+**Quick reference: [AGENTS.md](AGENTS.md)** — scan this first to find the right specialist.
+
 ## Specialists
 
 ### Build & Ship

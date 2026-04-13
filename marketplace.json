@@ -1,107 +1,136 @@
 {
   "name": "project-agent-army",
   "owner": {
-    "name": "HumboldtJoker",
-    "email": "contact@humboldtjoker.dev"
+    "name": "Liberation Labs / THCoalition",
+    "email": "cc@liberationlabs.tech"
   },
+  "index": "AGENTS.md",
   "plugins": [
     {
       "name": "backend-architect",
       "source": "./backend-architect",
       "description": "Backend architecture and system design specialist agent",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
+      "version": "1.1.0",
+      "mode": "builder",
+      "tools": ["Bash", "Read", "Write", "Edit", "Grep", "Glob"],
+      "skills": [{"name": "backend-architect", "source": "./skill.md"}]
     },
     {
       "name": "frontend-developer",
       "source": "./frontend-developer",
       "description": "Frontend development and UI/UX specialist agent",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
+      "version": "1.1.0",
+      "mode": "builder",
+      "tools": ["Bash", "Read", "Write", "Edit", "Grep", "Glob"],
+      "skills": [{"name": "frontend-developer", "source": "./skill.md"}]
     },
     {
       "name": "database-architect",
       "source": "./database-architect",
       "description": "Database design and optimization specialist agent",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
+      "version": "1.1.0",
+      "mode": "builder",
+      "tools": ["Bash", "Read", "Write", "Edit", "Grep", "Glob"],
+      "skills": [{"name": "database-architect", "source": "./skill.md"}]
     },
     {
       "name": "security-auditor",
       "source": "./security-auditor",
-      "description": "Security analysis and vulnerability assessment specialist agent",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
+      "description": "Security analysis and vulnerability assessment (READ-ONLY)",
+      "version": "1.1.0",
+      "mode": "reviewer",
+      "tools": ["Read", "Grep", "Glob"],
+      "skills": [{"name": "security-auditor", "source": "./skill.md"}]
     },
     {
       "name": "test-engineer",
       "source": "./test-engineer",
-      "description": "Testing strategy and quality assurance specialist agent",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
+      "description": "Testing strategy, test writing, and CI integration",
+      "version": "1.1.0",
+      "mode": "builder",
+      "tools": ["Bash", "Read", "Write", "Edit", "Grep", "Glob"],
+      "skills": [{"name": "test-engineer", "source": "./skill.md"}]
     },
     {
       "name": "domain-researcher",
       "source": "./domain-researcher",
-      "description": "Domain analysis and requirements research specialist agent",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
+      "description": "Systematic domain research and literature review (READ + WEB)",
+      "version": "1.1.0",
+      "mode": "researcher",
+      "tools": ["Read", "Grep", "Glob", "WebSearch", "WebFetch"],
+      "skills": [{"name": "domain-researcher", "source": "./SKILL.md"}]
     },
     {
       "name": "constitutional-ai",
       "source": "./constitutional-ai",
-      "description": "Ethical AI governance and constitutional constraint specialist agent",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
+      "description": "Ethics review and Coalition values compliance (READ-ONLY)",
+      "version": "1.1.0",
+      "mode": "reviewer",
+      "tools": ["Read", "Grep", "Glob"],
+      "skills": [{"name": "constitutional-ai", "source": "./SKILL.md"}]
     },
     {
       "name": "agent-patterns",
       "source": "./agent-patterns",
-      "description": "Agent design patterns and collaboration frameworks",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
+      "description": "Reference: 5 architectural patterns for AI agents",
+      "version": "1.1.0",
+      "mode": "reference",
+      "tools": ["Read"],
+      "skills": [{"name": "agent-patterns", "source": "./skill.md"}]
     },
     {
       "name": "code-reviewer",
       "source": "./code-reviewer",
-      "description": "Senior code review specialist focusing on substance over style",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
+      "description": "Code quality and pattern review (READ-ONLY)",
+      "version": "1.1.0",
+      "mode": "reviewer",
+      "tools": ["Read", "Grep", "Glob"],
+      "skills": [{"name": "code-reviewer", "source": "./skill.md"}]
     },
     {
       "name": "api-designer",
       "source": "./api-designer",
-      "description": "Contract-first API architecture specialist for REST, GraphQL, and gRPC",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
+      "description": "Contract-first API design for REST, GraphQL, and gRPC",
+      "version": "1.1.0",
+      "mode": "builder",
+      "tools": ["Read", "Write", "Edit", "Grep", "Glob"],
+      "skills": [{"name": "api-designer", "source": "./skill.md"}]
     },
     {
       "name": "devops-engineer",
       "source": "./devops-engineer",
-      "description": "CI/CD pipelines, infrastructure as code, and deployment automation specialist",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
+      "description": "CI/CD pipelines, IaC, containers, monitoring, deployment",
+      "version": "1.1.0",
+      "mode": "builder",
+      "tools": ["Bash", "Read", "Write", "Edit", "Grep", "Glob"],
+      "skills": [{"name": "devops-engineer", "source": "./skill.md"}]
     },
     {
       "name": "data-engineer",
       "source": "./data-engineer",
-      "description": "Data pipeline architecture, ETL/ELT patterns, and data quality specialist",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
+      "description": "Data pipelines, ETL/ELT, data quality, warehouse architecture",
+      "version": "1.1.0",
+      "mode": "builder",
+      "tools": ["Bash", "Read", "Write", "Edit", "Grep", "Glob"],
+      "skills": [{"name": "data-engineer", "source": "./skill.md"}]
     },
     {
       "name": "security-hardener",
       "source": "./security-hardener",
-      "description": "Defensive LLM security specialist for prompt injection defense and constitutional hardening",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
+      "description": "Defensive LLM security: prompt injection defense, constitutional hardening",
+      "version": "1.1.0",
+      "mode": "builder",
+      "tools": ["Bash", "Read", "Write", "Edit", "Grep", "Glob"],
+      "skills": [{"name": "security-hardener", "source": "./skill.md"}]
     },
     {
       "name": "red-hat-tester",
       "source": "./red-hat-tester",
-      "description": "Offensive AI security testing specialist for authorized vulnerability assessments",
-      "version": "1.0.0",
-      "author": "HumboldtJoker"
+      "description": "Offensive AI security testing (authorized testing ONLY)",
+      "version": "1.1.0",
+      "mode": "tester",
+      "tools": ["Bash", "Read", "Grep", "Glob"],
+      "skills": [{"name": "red-hat-tester", "source": "./skill.md"}]
     }
   ]
 }

@@ -1,5 +1,6 @@
 ---
 name: api-designer
+description: Senior API Architect for contract-first design and developer-friendly interfaces
 model: inherit
 tools: [Read, Write, Edit, Grep, Glob]
 disallowedTools: [Agent]

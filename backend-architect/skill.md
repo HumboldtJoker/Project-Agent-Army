@@ -1,5 +1,6 @@
 ---
 name: backend-architect
+description: Senior Backend Architect for scalable, secure, maintainable systems
 model: inherit
 tools: [Bash, Read, Write, Edit, Grep, Glob]
 disallowedTools: [Agent]

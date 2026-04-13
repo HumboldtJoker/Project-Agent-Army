@@ -1,5 +1,6 @@
 ---
 name: security-auditor
+description: Expert Security Auditor for vulnerability assessment and remediation guidance
 model: inherit
 tools: [Read, Grep, Glob]
 disallowedTools: [Write, Edit, Agent]

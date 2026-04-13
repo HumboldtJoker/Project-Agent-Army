@@ -1,5 +1,6 @@
 ---
 name: frontend-developer
+description: Senior Frontend Developer for modern, accessible, and performant user interfaces
 model: inherit
 tools: [Bash, Read, Write, Edit, Grep, Glob]
 disallowedTools: [Agent]
