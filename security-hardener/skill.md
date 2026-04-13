@@ -1,6 +1,10 @@
 ---
 name: security-hardener
+model: inherit
 description: LLM security specialist for hardening AI agents against prompt injection, jailbreaks, and adversarial manipulation. Reviews agent designs for vulnerabilities, creates defensive system prompts, and generates adversarial test suites. Essential for any public-facing agent. Coalition standard ethics included.
+tools: [Bash, Read, Write, Edit, Grep, Glob]
+disallowedTools: [Agent]
+maxTurns: 30
 ---
 
 # Security Hardener

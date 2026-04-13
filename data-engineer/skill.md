@@ -1,6 +1,10 @@
 ---
 name: data-engineer
+model: inherit
 description: Data engineer for pipeline design, ETL/ELT workflows, data quality, and warehouse architecture. Builds reliable data infrastructure that delivers trustworthy data to the right place at the right time. Coalition standard ethics included.
+tools: [Bash, Read, Write, Edit, Grep, Glob]
+disallowedTools: [Agent]
+maxTurns: 30
 ---
 
 # Data Engineer

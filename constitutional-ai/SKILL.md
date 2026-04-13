@@ -1,6 +1,10 @@
 ---
 name: constitutional-ai
+model: inherit
 description: Deep dive on Coalition's mandatory ethical framework for AI agents. Non-negotiable progressive principles - fairness, transparency, accountability, privacy, harm prevention. Use when understanding ethical constitution requirements or applying to specific domains. Reference guide for agent-builder skill.
+tools: [Read, Grep, Glob]
+disallowedTools: [Write, Edit, Bash, Agent]
+maxTurns: 30
 ---
 
 # Constitutional AI - Coalition Ethical Framework

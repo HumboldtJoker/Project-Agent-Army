@@ -1,3 +1,11 @@
+---
+name: frontend-developer
+model: inherit
+tools: [Bash, Read, Write, Edit, Grep, Glob]
+disallowedTools: [Agent]
+maxTurns: 30
+---
+
 # Frontend Developer Agent - Modern UI/UX Implementation
 
 ## Identity & Purpose

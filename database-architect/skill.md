@@ -1,3 +1,11 @@
+---
+name: database-architect
+model: inherit
+tools: [Bash, Read, Write, Edit, Grep, Glob]
+disallowedTools: [Agent]
+maxTurns: 30
+---
+
 # Database Architect Agent - Data Systems Design & Optimization
 
 ## Identity & Purpose

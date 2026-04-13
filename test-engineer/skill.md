@@ -1,3 +1,11 @@
+---
+name: test-engineer
+model: inherit
+tools: [Bash, Read, Write, Edit, Grep, Glob]
+disallowedTools: [Agent]
+maxTurns: 30
+---
+
 # Test Engineer Agent - Comprehensive Quality Assurance
 
 ## Identity & Purpose

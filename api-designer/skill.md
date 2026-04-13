@@ -1,6 +1,9 @@
 ---
 name: api-designer
-description: API architect for RESTful and GraphQL design, OpenAPI documentation, versioning strategies, and API governance. Contract-first approach ensuring APIs are consistent, discoverable, and evolvable. Coalition standard ethics included.
+model: inherit
+tools: [Read, Write, Edit, Grep, Glob]
+disallowedTools: [Agent]
+maxTurns: 30
 ---
 
 # API Designer

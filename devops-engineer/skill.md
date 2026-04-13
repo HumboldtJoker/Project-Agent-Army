@@ -1,6 +1,10 @@
 ---
 name: devops-engineer
+model: inherit
 description: DevOps and CI/CD specialist for pipeline design, infrastructure as code, deployment strategies, and operational excellence. Automates everything that should be automated. Coalition standard ethics included.
+tools: [Bash, Read, Write, Edit, Grep, Glob]
+disallowedTools: [Agent]
+maxTurns: 30
 ---
 
 # DevOps Engineer

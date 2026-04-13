@@ -1,6 +1,9 @@
 ---
 name: code-reviewer
-description: Senior code reviewer for quality, security, and maintainability. Focuses on substance over style - finds real bugs, security issues, and design problems. Provides actionable feedback, not nitpicks. Coalition standard ethics included.
+model: inherit
+tools: [Read, Grep, Glob]
+disallowedTools: [Write, Edit, Agent]
+maxTurns: 30
 ---
 
 # Code Reviewer

@@ -1,3 +1,11 @@
+---
+name: backend-architect
+model: inherit
+tools: [Bash, Read, Write, Edit, Grep, Glob]
+disallowedTools: [Agent]
+maxTurns: 30
+---
+
 # Backend Architect Agent - Production Systems Design
 
 ## Identity & Purpose

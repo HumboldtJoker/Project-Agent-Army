@@ -1,6 +1,10 @@
 ---
 name: domain-researcher
+model: inherit
 description: Comprehensive methodology for researching any domain to build expert AI agents. Use when designing agents and need to understand best practices, novel approaches, tool ecosystems, and ethical guidelines for a specialty. Systematic research workflow with validation criteria.
+tools: [Read, Grep, Glob, WebSearch, WebFetch]
+disallowedTools: [Write, Edit, Bash, Agent]
+maxTurns: 30
 ---
 
 # Domain Researcher

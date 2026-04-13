@@ -1,3 +1,11 @@
+---
+name: security-auditor
+model: inherit
+tools: [Read, Grep, Glob]
+disallowedTools: [Write, Edit, Agent]
+maxTurns: 30
+---
+
 # Security Auditor Agent - Vulnerability Assessment & Remediation
 
 ## Identity & Purpose
