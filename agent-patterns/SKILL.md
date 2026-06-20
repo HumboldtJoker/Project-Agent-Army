@@ -1,24 +1,27 @@
 ---
 name: agent-patterns
-description: Research-backed architectural patterns for AI agents (2024-2025). Five core patterns from deterministic to autonomous - Prompt Chain, Routing, Tool-Calling, RAG, Multi-Agent. Includes tool integration, prompt engineering, optimization, and testing strategies. Use when designing agent architecture.
+description: Research-backed architectural patterns for AI agents (2024-2026). Nine core patterns from deterministic to autonomous. Includes 2026 additions — dynamic workflow scripting, fan-out/merge, generator-evaluator loops, multi-agent debate. MCP-first tool integration, security baseline, and the "single agent wins 64%" rule.
 ---
 
 # Agent Design Patterns
 
-Research-backed architectural patterns for building effective AI agents, based on 2024-2025 best practices from Anthropic, Databricks, LangChain, and industry leaders.
+Research-backed architectural patterns for building effective AI agents. Updated June 2026 with production-validated patterns from Anthropic, Claude Code, and industry leaders.
 
 ## Design Philosophy
 
 **Start Simple**: Begin with the simplest pattern that solves the problem. Add complexity only when clearly beneficial.
 
-**Autonomy Spectrum**: Patterns exist on a continuum from deterministic (no autonomy) to fully autonomous (high autonomy). Higher autonomy means higher cost, latency, and debugging difficulty.
+**The 64% Rule (2026)**: A single well-equipped agent outperforms multi-agent setups on 64% of benchmarked tasks. Reach for multi-agent patterns ONLY when tasks are parallelizable, exceed context limits, or need adversarial verification. Multi-agent cost blowup is real — $0.50 test runs can hit $50k/month at 100K executions.
 
+**Autonomy Spectrum**:
 ```
-Deterministic → Single-Agent → Multi-Agent
-  (Cheapest)      (Sweet spot)    (Most complex)
-  (Fastest)       (Balanced)      (Slowest)
-  (Easiest debug) (Moderate)      (Hardest debug)
+Deterministic → Single-Agent → Fan-Out → Multi-Agent → Dynamic Workflow
+  (Cheapest)      (Sweet spot)   (Parallel)  (Complex)    (Most powerful)
+  (Fastest)       (Balanced)     (Fast)      (Slowest)    (Self-orchestrating)
+  (Easiest debug) (Moderate)     (Moderate)  (Hardest)    (Observable)
 ```
+
+**MCP-First**: Tools should be MCP servers when possible. MCP provides standard discovery, authentication, and sandboxing. Build tool servers, not one-off function definitions.
 
 ## Core Patterns
 
@@ -385,6 +388,106 @@ class Orchestrator:
 
 **When NOT to Use**: Unless you've proven simpler patterns insufficient.
 
+### Pattern 6: Fan-Out/Merge (Parallel with LLM Synthesis) [2026]
+
+**When to Use**: Task decomposes into independent subtasks that can run in parallel, with results synthesized by an LLM.
+
+**Architecture**:
+```
+Input → [Dispatcher] → Agent1 ─┐
+                    → Agent2 ─┤→ [Collector/Synthesizer] → Output
+                    → Agent3 ─┘
+```
+
+**Example**: Code review across dimensions
+```
+PR Diff → Dispatcher → Bug Finder    ─┐
+                     → Perf Reviewer  ─┤→ Synthesizer → Review Report
+                     → Security Scan  ─┘
+```
+
+**Implementation (Claude Code Workflows)**:
+```javascript
+const results = await parallel([
+  () => agent('Find bugs in this diff', {label: 'bugs'}),
+  () => agent('Check performance issues', {label: 'perf'}),
+  () => agent('Security review', {label: 'security'}),
+])
+const report = await agent(`Synthesize these reviews: ${JSON.stringify(results)}`)
+```
+
+**Key insight**: Use `pipeline()` over `parallel()` when stages don't need cross-item context. Pipeline lets Item A finish stage 2 while Item B is still in stage 1 — no wasted wall-clock.
+
+### Pattern 7: Dynamic Workflow Scripting [2026]
+
+**When to Use**: Task is too large for one context window, or orchestration logic needs conditionals, loops, and dynamic fan-out.
+
+**Architecture**:
+```
+User Request → [Planner writes orchestration script]
+                        ↓
+              [Script executes agents]
+              ├─ phase('Discover') → N agents
+              ├─ phase('Transform') → pipeline over results
+              └─ phase('Verify') → adversarial check
+                        ↓
+                     Results
+```
+
+**Key difference from Pattern 5**: The orchestration logic lives in a FILE (JavaScript), not in the LLM's context. The LLM writes the script, then the runtime executes it deterministically. This means loops, conditionals, error handling, and dynamic scaling are all explicit code.
+
+**When NOT to use**: Simple tasks. A single well-equipped agent handles 64% of tasks better than any multi-agent setup.
+
+### Pattern 8: Generator-Evaluator Loop [2026]
+
+**When to Use**: Output quality needs iterative refinement — code review, content editing, optimization.
+
+**Architecture**:
+```
+[Generator] → Output → [Evaluator] → Feedback ─┐
+     ↑                                          │
+     └──────────────────────────────────────────┘
+              (iterate until quality threshold)
+```
+
+**Example**: Code generation with quality gate
+```
+Generator: Write function
+Evaluator: Run tests, check style, review logic
+  → PASS: Ship it
+  → FAIL: Feed errors back to generator, retry
+```
+
+**Best Practice**: Use a different model family for the evaluator (cross-family reduces self-preference bias). Set max iterations to prevent infinite loops.
+
+### Pattern 9: Multi-Agent Debate [2026]
+
+**When to Use**: High-stakes correctness where single-perspective review is insufficient.
+
+**Architecture**:
+```
+[Maker] → Proposal → [Checker] → Critique ─┐
+   ↑                                         │
+   └─────────────────────────────────────────┘
+              (iterate until convergence)
+```
+
+**Variant**: N independent agents each solve the problem, then a judge selects the best or synthesizes from all. Useful when the solution space is wide.
+
+**Key insight**: Fast model generates, capable model validates. This is cheaper and often better than using the capable model for both.
+
+## Security Baseline (2026 Standard)
+
+Every agent deployment must address:
+
+1. **Semantic injection detection**: Score payloads for attack patterns before the model sees them. Regex is dead — use semantic scoring.
+2. **MCP tool allow-listing**: Exclude tool schemas from context at inference time AND block execution at runtime. Two layers.
+3. **Output scanning**: Credential leakage detection + PII detection on every response before egress.
+4. **Sandbox execution**: Run agents in sandboxed environments. Approval gates for destructive operations.
+5. **Audit logging**: All agent actions logged. Treat agents as privileged infrastructure.
+
+The "Lethal Trifecta" risk model: if your agent has (1) access to private data, (2) exposure to untrusted tokens, and (3) an exfiltration vector — you have a critical vulnerability.
+
 ## Tool Integration Strategies
 
 ### Strategy 1: Function Calling
@@ -543,8 +646,8 @@ Example 2:
 ### Reduce Latency
 
 1. **Use smaller models for simple tasks**
-   - Router: GPT-3.5 or Claude Instant
-   - Complex reasoning: GPT-4 or Claude Opus
+   - Router: Claude Haiku 4.5 or equivalent small model
+   - Complex reasoning: Claude Opus 4.8 or equivalent frontier model
 
 2. **Parallel tool calls**
    - If tools independent, execute simultaneously
@@ -674,30 +777,40 @@ def test_very_long_input():
 ## Pattern Selection Guide
 
 ```
-Does the task require dynamic decision-making?
-├─ NO → Use Prompt Chain (deterministic)
-└─ YES
+Can a single agent handle this with tools?
+├─ YES (64% of tasks) → Use Tool-Calling Agent (Pattern 3)
+└─ NO
     ↓
-    Are there distinct categories of inputs requiring different workflows?
-    ├─ YES → Use Routing pattern
+    Is the workflow fixed and known?
+    ├─ YES → Use Prompt Chain (Pattern 1)
     └─ NO
         ↓
-        Does agent need external tools/APIs?
-        ├─ YES → Use Tool-Calling Agent
+        Can subtasks run in parallel independently?
+        ├─ YES → Use Fan-Out/Merge (Pattern 6)
         └─ NO
             ↓
-            Does agent need proprietary/updated knowledge?
-            ├─ YES → Use RAG pattern
+            Does output need iterative quality refinement?
+            ├─ YES → Use Generator-Evaluator (Pattern 8)
             └─ NO
                 ↓
-                Does task require multiple specialized expertises?
-                ├─ YES → Use Orchestrator + Specialists
-                └─ NO → Use simple single-agent with tool calling
+                Is the task too large for one context window?
+                ├─ YES → Use Dynamic Workflow (Pattern 7)
+                └─ NO
+                    ↓
+                    Does it need adversarial verification?
+                    ├─ YES → Use Multi-Agent Debate (Pattern 9)
+                    └─ NO → Use Orchestrator + Specialists (Pattern 5)
 ```
+
+**Remember**: Start with Pattern 3 (single agent + tools). Graduate to multi-agent only when you've proven it's necessary. The 64% rule is real.
 
 ## Further Reading
 
 - Anthropic: "Building Effective Agents" (2024)
+- Anthropic: "Dynamic Workflows in Claude Code" (2026)
 - Databricks: "Agent System Design Patterns" (2025)
-- LangChain: "Agent Architectures" (2024)
-- MongoDB: "7 Design Patterns for Agentic Systems" (2024)
+- Beam.ai: "6 Multi-Agent Orchestration Patterns for Production" (2026)
+- Teamday: "Complete Guide to Agentic Coding" (2026)
+- Maxim: "Prompt Injection Defense for Production AI Agents" (2026)
+- arXiv:2604.07502: "Beyond Human-Readable: Rethinking Software Engineering for the Agentic Era"
+- MCP Registry: modelcontextprotocol.io/registry
